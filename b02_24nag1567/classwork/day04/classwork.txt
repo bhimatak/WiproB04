@@ -1,0 +1,12 @@
+
+
+WAP to get the position of a substring in a string
+
+i/p:
+Main string: This is a C Programming class, We are leaning arrays and string today
+i/p
+sub string: are
+
+o/p : 34
+
+o/p: -1
