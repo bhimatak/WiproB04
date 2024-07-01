@@ -11,7 +11,8 @@ int main()
     int noOfElem = 5;
 
     // ptr = a;
-    ptr  = (int *) malloc(noOfElem *sizeof(int));
+    // ptr  = (int *) malloc(noOfElem * sizeof(int));
+    ptr  = (int *) calloc(noOfElem, sizeof(int));
     temp = ptr;
     for(sum=0,i=0;i<noOfElem;i++,ptr++){
         scanf("%d",ptr);
@@ -25,7 +26,8 @@ int main()
     printf("\nAvg = %f",avg);
 
     printf("\n\n");
-
+    ptr = temp;
+    free(ptr);
     return 0;
     
 }
