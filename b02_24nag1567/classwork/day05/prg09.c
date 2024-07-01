@@ -25,15 +25,25 @@ int main()
 
     printf("\na[0] = %d",*a);
 
-    ptr = &a[0];
-
+    // ptr = &a[0];
+    // ptr = a; // ptr is pointing to BA of array
+   
+    /*
     printf("\nusing ptr a[0] = %d",*ptr);
 
 
-    ptr = &a[1];
+    ptr++;
 
     printf("\nusing ptr a[1] = %d",*ptr);
+    ptr++;
 
+    printf("\nusing ptr a[2] = %d",*ptr);
+    */
+    for(i=0, ptr = a;i<3;i++, ptr++)
+    {
+        printf("\nusing ptr a[%d] = %d",i,*ptr);
+       
+    }
 
 
     
