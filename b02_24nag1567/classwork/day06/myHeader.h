@@ -7,4 +7,6 @@ function searchValue:
 */
 int searchValue(int [], int, int);
 
+void getData(int [], int, int);
+
 void display(int [], int);

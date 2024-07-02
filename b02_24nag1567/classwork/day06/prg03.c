@@ -15,17 +15,16 @@ int main()
 {
     int *arr=NULL;
     int i, SIZE, key, oldSIZE;
+    int si=0;
     int res=0;
     printf("\nEnter the no of elements for array\n");
     scanf("%d",&SIZE);
     oldSIZE = SIZE;
     arr = (int *)malloc(SIZE*sizeof(int));
+    si = 0;
+    getData(arr, SIZE, si);
 
-    printf("\nEnter %d elements of array\n",SIZE);
-    for(i=0;i<SIZE;i++)
-        scanf("%d",&arr[i]);
-
-    display(arr, SIZE);
+    
     printf("\nEnter the value to be searched in the list\n");
     scanf("%d",&key);
     res = searchValue(arr, SIZE, key);
@@ -45,13 +44,10 @@ int main()
 
     arr = (int *)realloc(arr, SIZE*sizeof(int));
     display(arr, SIZE);
-
-    printf("\nEnter %d more elements of array\n",SIZE-oldSIZE);
-    for(i=oldSIZE;i<SIZE;i++)
-        scanf("%d",&arr[i]);
-
-    display(arr, SIZE);
-
+    si = oldSIZE;
+    getData(arr, SIZE, si);
+    
+    
     printf("\nEnter the value to be searched in the list\n");
     scanf("%d",&key);
     res = searchValue(arr, SIZE, key);

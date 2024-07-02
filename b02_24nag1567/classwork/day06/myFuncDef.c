@@ -27,3 +27,13 @@ void display(int arr[], int SIZE)
     
     printf("\n\n");
 }
+
+void getData(int arr[], int SIZE, int si)
+{
+    int i;
+    printf("\nEnter %d elements of array\n",SIZE-si);
+    for(i=si;i<SIZE;i++)
+        scanf("%d",&arr[i]);
+    printf("\n\n");
+    display(arr, SIZE);
+}
