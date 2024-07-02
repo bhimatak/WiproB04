@@ -4,3 +4,14 @@
 strlen
 
 strcpy
+
+
+char *team_cricket[11] = {
+                            "abc1",
+                            "abcd2",
+                            "abcde3",
+
+                            };
+
+        team_cricket[0][5] = "abc1"
+        team_cricket[1][6] = "abcd2"
