@@ -14,11 +14,11 @@ int *ptr=NULL; => initialized to NULL will be called as null ptr
 int main()
 {
     int *arr=NULL;
-    int i, SIZE, key;
+    int i, SIZE, key, oldSIZE;
     int res=0;
     printf("\nEnter the no of elements for array\n");
     scanf("%d",&SIZE);
-
+    oldSIZE = SIZE;
     arr = (int *)malloc(SIZE*sizeof(int));
 
     printf("\nEnter %d elements of array\n",SIZE);
@@ -39,8 +39,35 @@ int main()
         printf("\n%d Key is not present in the list\n", key);
     }
 
+    // extended the array to have new size
+    printf("\nEnter the no of elements for array to be extenede\n");
+    scanf("%d",&SIZE);
+
+    arr = (int *)realloc(arr, SIZE*sizeof(int));
+    display(arr, SIZE);
+
+    printf("\nEnter %d more elements of array\n",SIZE-oldSIZE);
+    for(i=oldSIZE;i<SIZE;i++)
+        scanf("%d",&arr[i]);
+
+    display(arr, SIZE);
+
+    printf("\nEnter the value to be searched in the list\n");
+    scanf("%d",&key);
+    res = searchValue(arr, SIZE, key);
+    if(res >=0)
+    {
+        printf("\nValue is Present in the list\n");
+        printf("\n%d Key is found at %d position",key,res);
+    }
+    else
+    {
+        printf("\n%d Key is not present in the list\n", key);
+    }
+
 
     printf("\n\n");
 
+    free(arr);
     return 0;
 }
