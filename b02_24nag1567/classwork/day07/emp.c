@@ -31,9 +31,24 @@ int findEmpName(EMP *e, int n, char *key)
     {
         if(strcmp(e[i].empName, key)==0)
         {
-            return 1;
+            return i;
         }
     }
 
-    return 0;
+    return -1;
+}
+
+
+int findEmpID(EMP *e, int n, int key)
+{
+    int i;
+    for(i=0;i<n;i++)
+    {
+        if(e[i].empId == key)
+        {
+            return i;
+        }
+    }
+
+    return -1;
 }

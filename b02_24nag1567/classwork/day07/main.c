@@ -4,14 +4,30 @@
 int main()
 {
     EMP e[10];
-    int i;
+    char name[20];
+    int id;
+    int i, res=0;
     for(i=0;i<3;i++)
         getData(&e[i]);
     for(i=0;i<3;i++)
         display(e[i]);
-    
-    if(findEmpName(e,3,"2") == 1)
+    printf("\nEnter the name to be searched: ");
+    scanf("%s",name);
+    res = findEmpName(e,3,name);
+    if( res >= 0){
         printf("\nFound\n");
+        display(e[res]);
+    }
+    else
+        printf("\nNot Found\n");
+
+    printf("\nEnter the id to be searched: ");
+    scanf("%d",&id);
+    res = findEmpID(e,3,id);
+    if( res >= 0){
+        printf("\nFound\n");
+        display(e[res]);
+    }
     else
         printf("\nNot Found\n");
     printf("\n\n");
