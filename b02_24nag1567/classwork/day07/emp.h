@@ -5,7 +5,7 @@
 
 
 struct Employee{
-    char empName[20];
+    char *empName;
     int empId;
     int empSal;
     
