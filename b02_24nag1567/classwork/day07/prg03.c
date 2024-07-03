@@ -3,14 +3,14 @@
 #include <string.h>
 #define MAXL 1024
 
-struct Employee{
+union Employee{
     char empName[20];
     int empId;
     int empSal;
     
 };
 
-typedef struct Employee EMP;
+typedef union Employee EMP;
 
 
 void display(EMP e)
@@ -36,21 +36,12 @@ void getData(EMP *e)
 
 int main()
 {
-    EMP *e, *temp;
-    int n, i;
-    printf("\nEnter the no of employee: ");
-    scanf("%d",&n);
-    printf("\nSize of EMP = %d",sizeof(EMP));
-    
-    e = (EMP *)malloc(n*sizeof(EMP));
-    temp = e;
-
-    for(i=0;i<n;i++,e++)
-        getData(e);
-    e = temp;
-    for(i=0;i<n;i++,e++)
-        display(*e);
-
+    EMP e1;
+    // printf("\nSize of union = %d",sizeof(EMP)); 
+    scanf("%s",e1.empName);
+    scanf("%d",&e1.empId);
+    printf("\n%s",e1.empName);
+    printf("\n%d",e1.empId);
     printf("\n\n");
     return 0;
 

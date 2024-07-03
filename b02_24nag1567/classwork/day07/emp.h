@@ -1,3 +1,9 @@
+// #ifndef EMP_H
+// #define EMP_H
+
+#pragma once
+
+
 struct Employee{
     char empName[20];
     int empId;
@@ -12,3 +18,4 @@ void display(EMP);
 int findEmpName(EMP *, int, char *);
 
 int findEmpID(EMP *, int, int);
+// #endif
