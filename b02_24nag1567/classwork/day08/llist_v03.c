@@ -11,6 +11,13 @@ void dispList(NODE *);
 
 int dispMenu();
 
+void *createNode();
+NODE *appendList(NODE *, NODE *);
+NODE *addNodeBeg(NODE *, NODE *);
+void addNodeKey(NODE *, NODE *);
+
+
+
 int main()
 {
     NODE *nn=NULL, *head=NULL, *temp=NULL;
@@ -21,11 +28,25 @@ int main()
         ch = dispMenu();
         switch (ch)
         {
+        
         case 1:
-            //create nn
-            break;
-        case 2:
             //add nn in end
+            
+            head = appendList(nn,head);
+            break;
+        
+        case 2:
+            //add nn in beg
+            
+            head = addNodeBeg(nn,head);
+            break;
+        case 3:
+            //add nn after a value
+           
+            addNodeKey(nn,head);
+            break;
+        case 4:
+            dispList(head);
             break;
         case 0:
             printf("\nExiting the program...");
@@ -62,14 +83,56 @@ int dispMenu()
     int ch;
 
     printf("\nPress,");
-    printf("\n1. Create a new node");
-    printf("\n2. add new node in the end");
-    printf("\n3. add new node in the begining");
-    printf("\n4. add new node after a value");
-    printf("\n5. display list");
+    
+    printf("\n1. add new node in the end");
+    printf("\n2. add new node in the begining");
+    printf("\n3. add new node after a value");
+    printf("\n4. display list");
     printf("\n0. to exit");
     printf("\nChoice: ");
     scanf("%d",&ch);
 
     return ch;
+}
+
+
+void *createNode()
+{
+    return (malloc(sizeof(NODE)));
+}
+
+NODE *appendList(NODE *nn, NODE *head)
+{
+    NODE *temp = head;
+    nn = (NODE *)createNode();
+    printf("\nEnter the value of new Node: ");
+    scanf("%d",&nn->val);
+    nn->next = NULL;
+
+    if(temp == NULL)
+    {
+        //list is empty
+        temp = nn;
+        head = nn;
+    }
+    else
+    {
+        //list is present
+        while(temp->next != NULL)
+            temp = temp->next;
+        temp->next = nn;
+        
+    }
+
+    return head;
+}
+
+NODE *addNodeBeg(NODE *nn, NODE *head)
+{
+    return head;
+}
+
+void addNodeKey(NODE *nn, NODE *head)
+{
+
 }
